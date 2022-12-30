@@ -6,5 +6,10 @@ Class {
 
 { #category : #accessing }
 GameTest >> testCard [
-	Card new symbol: $A;flip.
+	| c |
+	c:=Card new symbol: $A.
+	self halt.
+	c flip.
+	self assert: true
+	
 ]

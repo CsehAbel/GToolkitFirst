@@ -21,10 +21,17 @@ Card >> flip [
 ]
 
 { #category : #accessing }
+Card >> initialize [
+	super initialize.
+	announcer:=AnnouncerMine new
+]
+
+{ #category : #accessing }
 Card >> notifyFlipped [
-self announcer announce: CardFlipped
+self announcer announce: CardFlipped new
 ]
 
 { #category : #accessing }
 Card >> symbol: aCharacter [ 
+	symbol:=aCharacter
 ]
