@@ -43,6 +43,11 @@ self announcer announce: CardFlipped new
 ]
 
 { #category : #accessing }
+Card >> symbol [
+	^symbol
+]
+
+{ #category : #accessing }
 Card >> symbol: aCharacter [ 
 	symbol:=aCharacter
 ]

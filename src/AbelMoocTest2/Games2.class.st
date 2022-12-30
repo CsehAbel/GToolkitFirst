@@ -18,6 +18,11 @@ Games2 >> allChoosenCardsMatch [
  ^choosenCards allSatisfy: [:each | each symbol = first symbol]
 ]
 
+{ #category : #'as yet unclassified' }
+Games2 >> availableCards [
+	^ availableCards
+]
+
 { #category : #accessing }
 Games2 >> cardsCount [
 	^ self gridSize * self gridSize
@@ -34,6 +39,11 @@ Games2 >> chooseCard: aCard [
 	"return from this method, prematurely call ^ self, skip the statements below"
 	self shouldSolveMatch ifTrue:[self solveMatch. ^ self].
 	self shouldDissolveMatch ifTrue: [self dissolveMatch].
+]
+
+{ #category : #accessing }
+Games2 >> choosenCards [
+	^choosenCards.
 ]
 
 { #category : #private }
