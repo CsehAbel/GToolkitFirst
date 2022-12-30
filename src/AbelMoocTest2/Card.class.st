@@ -15,6 +15,11 @@ Card >> announcer [
 ]
 
 { #category : #accessing }
+Card >> discard [
+	self notifyDiscarded.
+]
+
+{ #category : #accessing }
 Card >> flip [
 	flipped:=flipped not.
 	self notifyFlipped
@@ -25,6 +30,11 @@ Card >> initialize [
 	super initialize.
 	flipped:=false.
 	announcer:=AnnouncerMine new
+]
+
+{ #category : #accessing }
+Card >> notifyDiscarded [
+	self announcer announce: CardDiscarded new.
 ]
 
 { #category : #accessing }
