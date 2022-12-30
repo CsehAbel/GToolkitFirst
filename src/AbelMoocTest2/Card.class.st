@@ -23,6 +23,7 @@ Card >> flip [
 { #category : #accessing }
 Card >> initialize [
 	super initialize.
+	flipped:=false.
 	announcer:=AnnouncerMine new
 ]
 
