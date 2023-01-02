@@ -33,6 +33,11 @@ Card >> initialize [
 ]
 
 { #category : #accessing }
+Card >> isFlipped [ 
+	^ flipped
+]
+
+{ #category : #accessing }
 Card >> notifyDiscarded [
 	self announcer announce: CardDiscarded new.
 ]
