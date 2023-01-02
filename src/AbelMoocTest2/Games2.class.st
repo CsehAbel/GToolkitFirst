@@ -3,11 +3,21 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'availableCards',
-		'choosenCards',
-		'matchesCount'
+		'choosenCards'
 	],
 	#category : #AbelMoocTest2
 }
+
+{ #category : #accessing }
+Games2 class >> emojis [
+	^ self new initializeForSymbols: '💰🏡🎅🍪🍕🚀😸🙈'
+]
+
+{ #category : #initialization }
+Games2 class >> numbers [
+	^ self new initializeWith: '12345678'
+	
+]
 
 { #category : #testing }
 Games2 >> allChoosenCardsMatch [
@@ -100,4 +110,29 @@ Games2 >> shouldSolveMatch [
 { #category : #accessing }
 Games2 >> solveMatch [
 	choosenCards do: [:e | e discard];removeAll.
+]
+
+{ #category : #accessing }
+Games2 >> someMethod: aView [
+	<gtView>
+	self availableCards isEmpty ifTrue: [ ^ aView empty ].
+	^ aView columnedList
+		title: 'my elements listed';
+		items: [ self availableCards ];
+		column: [ :_ | _ ]
+			text: [ :rowObject :rowIndex :columnIndex | 
+				| aComputedItem |
+				aComputedItem := [ :_ |  ]
+						phlowValue: rowObject
+						withEnoughArguments: {rowObject.
+								rowIndex.
+								columnIndex}.
+				[ :_ | 
+				_ isFlipped
+					ifTrue: [ _ printString asRopedText background: Color green ]
+					ifFalse: [ _ printString asRopedText ] ]
+					phlowValue: aComputedItem
+					withEnoughArguments: {aComputedItem.
+							rowIndex.
+							columnIndex} ]
 ]
