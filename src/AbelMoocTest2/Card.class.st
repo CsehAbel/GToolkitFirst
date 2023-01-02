@@ -25,11 +25,11 @@ Card >> flip [
 	self notifyFlipped
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 Card >> initialize [
 	super initialize.
 	flipped:=false.
-	announcer:=AnnouncerMine new
+	announcer:=Announcer new
 ]
 
 { #category : #accessing }
