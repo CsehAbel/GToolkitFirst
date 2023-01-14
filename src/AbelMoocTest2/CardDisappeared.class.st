@@ -1,5 +1,5 @@
 Class {
-	#name : #CardDiscarded,
+	#name : #CardDisappeared,
 	#superclass : #Announcement,
 	#category : #AbelMoocTest2
 }

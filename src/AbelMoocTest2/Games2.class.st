@@ -38,6 +38,12 @@ Games2 >> cardsCount [
 	^ self gridSize * self gridSize
 ]
 
+{ #category : #accessing }
+Games2 >> checkChoosenCardsContainsACardX [
+self choosenCards do: [:each | (each symbol = $x) ifTrue: [^ true]].
+^ false
+]
+
 { #category : #private }
 Games2 >> chooseCard: aCard [
 	"dont choose a aCard twice"

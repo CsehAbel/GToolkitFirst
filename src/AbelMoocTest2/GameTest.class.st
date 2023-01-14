@@ -17,13 +17,23 @@ GameTest >> testCard [
 { #category : #accessing }
 GameTest >> testGameChooseCard [
 	"flip a card, see if its put in choosenCards"
-	| g h i |
-	g:= Games2 new chooseCard: (Card new symbol: $x).
-	h:= g choosenCards at: 1.
-	i:=false.
+	| res |
+	res:= Games2 new chooseCard: (Card new symbol: $x);
+	checkChoosenCardsContainsACardX.
+	self assert: res
+]
+
+{ #category : #accessing }
+GameTest >> testGameDisplay [
+	"flip a card, see if its put in choosenCards"
+	| aCard ce |
+	aCard:=Card new symbol: $x.
+	ce:=CardElement new card: aCard.
 	self halt.
-	g choosenCards do: [:each | (each symbol = $x) ifTrue: [i:=true]].
-	self assert: i = true
+	aCard flip.
+	self halt
+	"g has flipped the card, and if there are matches it sends: card discard or: card flip"
+	
 ]
 
 { #category : #accessing }

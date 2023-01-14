@@ -39,12 +39,13 @@ Card >> isFlipped [
 
 { #category : #accessing }
 Card >> notifyDiscarded [
-	self announcer announce: CardDiscarded new.
+	self announcer announce: CardDisappeared new.
 ]
 
 { #category : #accessing }
 Card >> notifyFlipped [
-self announcer announce: CardFlipped new
+self announcer announce: CardFlipped new.
+self halt
 ]
 
 { #category : #accessing }
