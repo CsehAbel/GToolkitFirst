@@ -49,6 +49,15 @@ GameTest >> testGameFlip [
 ]
 
 { #category : #accessing }
+GameTest >> testGamesElement [
+	| g h |
+	g:=Games2 numbers.
+	h:=GameElement2 new game: g.
+	self halt.
+	^h
+]
+
+{ #category : #accessing }
 GameTest >> testInitializeWith [
 	| g h |
 	g:=Games2 new.

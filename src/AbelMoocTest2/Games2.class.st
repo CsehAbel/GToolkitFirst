@@ -47,7 +47,10 @@ self choosenCards do: [:each | (each symbol = $x) ifTrue: [^ true]].
 { #category : #private }
 Games2 >> chooseCard: aCard [
 	"dont choose a aCard twice"
-	(choosenCards contains: aCard) ifTrue: [^ self].
+	| context |
+	context := thisContext.
+	"self haltIf: [ context sender selector == #clickEvent: ]."
+	(choosenCards includes: aCard) ifTrue: [^ self].
 	"choose a aCard"
 	choosenCards add: aCard.
 	aCard flip.
@@ -66,7 +69,7 @@ Games2 >> choosenCards [
 Games2 >> dissolveMatch [
 | last |
 	last:=choosenCards last.
-	choosenCards allButLast: [:each | each flip]; removeAll.
+	choosenCards allButLastDo: [:each | each flip]; removeAll.
 	choosenCards add: last.
 ]
 
@@ -124,10 +127,10 @@ Games2 >> someMethod: aView [
 	self availableCards isEmpty ifTrue: [ ^ aView empty ].
 	^ aView columnedList
 		title: 'my elements listed';
-		display: [ self availableCards ];
+		items: [ self availableCards ];
 		column: 'me'
 			item: [ :a | a ]
-			format: [ :a | 
+			text: [ :a | 
 				a isFlipped
 					ifTrue: [ a printString asRopedText background: Color green ]
 					ifFalse: [ a printString asRopedText ] ]

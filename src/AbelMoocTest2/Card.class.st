@@ -45,7 +45,6 @@ Card >> notifyDiscarded [
 { #category : #accessing }
 Card >> notifyFlipped [
 self announcer announce: CardFlipped new.
-self halt
 ]
 
 { #category : #accessing }

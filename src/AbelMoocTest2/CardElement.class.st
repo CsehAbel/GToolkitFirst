@@ -114,7 +114,6 @@ CardElement >> onDisappear [
 { #category : #accessing }
 CardElement >> onFlipped [
 	self card isFlipped ifTrue: [self onFlippedFace] ifFalse: [self onFlippedBack].
-	self halt
 ]
 
 { #category : #accessing }
@@ -125,7 +124,6 @@ CardElement >> onFlippedBack [
 
 { #category : #accessing }
 CardElement >> onFlippedFace [
-	self halt.
 	face visibility: BlVisibility visible.
 	back visibility: BlVisibility hidden.
 ]
